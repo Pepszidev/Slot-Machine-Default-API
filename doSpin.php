@@ -1,5 +1,7 @@
 <?php
 header('Content-type =>  application/json');
+// Start the session
+session_start();
 
 $spinResult = ["reels" => [], "winSymbols" => []];
 
@@ -153,6 +155,7 @@ Total result is calculated later via doCollect
 $gameData = [
     "spinResult" => $spinResult,
 ];
+$_SESSION["gameData"] = $gameData;
 
 $resp = $gameData["spinResult"];
 
