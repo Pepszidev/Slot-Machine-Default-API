@@ -97,7 +97,7 @@ for($x = 0; $x < 5; ++$x) {
     $spinResult["reels"][] = ["reel" => []];
     
     for($y = 0; $y < 30; ++$y) {
-        $spinResult["reels"][$x]["reel"][] = random_int(1, 2);        
+        $spinResult["reels"][$x]["reel"][] = random_int(1, 5);        
     }
 }
 
