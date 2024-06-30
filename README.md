@@ -5,4 +5,4 @@ You can check the video here : https://www.youtube.com/watch?v=w8sWkl2Fk1I
 
 Unity asset store : UNDER ACCEPTATION
 
-There's currently no statistics calculation and win calculation on this api. The math part is reserved for other project as stats are generally unique by project.
+There's currently no probability calculation and win calculation on this api. The math part is reserved for other projects as probabilities are generally unique by project. I don't want it to be specific, at least the less the better.
