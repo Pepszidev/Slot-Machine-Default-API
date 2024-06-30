@@ -1,7 +1,6 @@
 # Slot-Machine-Default-API
-Slot machine backend designed for this unity project. It is as simple as it is so you can customize logins on your own. Multiple other project will follow with more advenced feature. This git will be the base of every  other project.
+Slot machine backend designed the unity project below. It is designed to be simple as possible so you can customize logic on your own. Multiple other project will follow with more advenced feature. This git will be the base of every  other project.
 
+You can check the video here : https://www.youtube.com/watch?v=w8sWkl2Fk1I 
 
 Unity asset store : UNDER ACCEPTATION
-
-Project video : https://www.youtube.com/watch?v=w8sWkl2Fk1I 
