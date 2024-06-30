@@ -1,7 +1,11 @@
 <?php
+
+
 header('Content-type =>  application/json');
 // Start the session
 session_start();
+ob_start();
+$betAmount = $_POST["betAmount"];
 
 $spinResult = ["reels" => [], "winSymbols" => []];
 
@@ -114,7 +118,7 @@ $spinResult["winSymbols"][] = ["reelWinSymbols" => []];
 $spinResult["winSymbols"][] = ["reelWinSymbols" => []];
 $spinResult["winSymbols"][] = ["reelWinSymbols" => []];
 
-foreach($lines as $line) {
+foreach($lines as $key => $line) {
     
     $firstSymbolIndex = count($spinResult["reels"][$line[0][0]]["reel"]) - 1 - $line[0][1];
     $firstSymbol = $spinResult["reels"][$line[0][0]]["reel"][$firstSymbolIndex];
@@ -141,7 +145,10 @@ foreach($lines as $line) {
     }
 
     if(count($connections) >= 3) {
+        
         foreach($connections as $key => $connectionReel) {
+            $connectionReel["lineId"] = $key;
+            $connectionReel["nbConnection"] = count($connections);
             $spinResult["winSymbols"][$key]["reelWinSymbols"][] = $connectionReel;
         }        
     }
@@ -156,9 +163,10 @@ $gameData = [
     "spinResult" => $spinResult,
 ];
 $_SESSION["gameData"] = $gameData;
+$_SESSION["balance"] -= $betAmount;
+$_SESSION["betAmount"] = $betAmount;
 
 $resp = $gameData["spinResult"];
-
 
 echo json_encode($resp);
 
