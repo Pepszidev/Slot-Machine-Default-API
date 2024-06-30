@@ -3,4 +3,5 @@ Slot machine backend designed for this unity project. It is as simple as it is s
 
 
 Unity asset store : UNDER ACCEPTATION
+
 Project video : https://www.youtube.com/watch?v=w8sWkl2Fk1I 
