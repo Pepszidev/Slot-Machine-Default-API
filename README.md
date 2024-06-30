@@ -4,3 +4,5 @@ Slot machine backend designed for the unity project below. It is designed to be 
 You can check the video here : https://www.youtube.com/watch?v=w8sWkl2Fk1I 
 
 Unity asset store : UNDER ACCEPTATION
+
+There's currently no statistics calculation and win calculation on this api. The math part is reserved for other project as stats are generally unique by project.
