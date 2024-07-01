@@ -8,10 +8,12 @@ ob_start();
 
 $resp = NULL;
 
-if(!isset($_SESSION["settings"]) || is_null($_SESSION["settings"]["SoundEnabled"]) || floatval($_POST["BetAmount"]) == 0) {
+//Initialize settings on first connection
+if(!isset($_SESSION["settings"])) {
     $resp = $defaultConfig;    
 }
-else {
+// If the bet amount != 0 => That means the user is updating its config
+else if(floatval($_POST["BetAmount"]) != 0) {
     $resp = [
         "SoundEnabled" => boolval($_POST["SoundEnabled"]),
         "FastPlay" => boolval($_POST["FastPlay"]),
@@ -19,6 +21,17 @@ else {
         "Intro" => boolval($_POST["Intro"]),
         "Volume" => floatval($_POST["Volume"]),
         "BetAmount" => floatval($_POST["BetAmount"]),
+    ];
+}
+// Just retrieve session on first connection if its exist
+else {
+    $resp = [
+        "SoundEnabled" => boolval($_SESSION['settings']["SoundEnabled"]),
+        "FastPlay" => boolval($_SESSION['settings']["FastPlay"]),
+        "TurboPlay" => boolval($_SESSION['settings']["TurboPlay"]),
+        "Intro" => boolval($_SESSION['settings']["Intro"]),
+        "Volume" => floatval($_SESSION['settings']["Volume"]),
+        "BetAmount" => floatval($_SESSION['settings']["BetAmount"]),
     ];
 }
 
