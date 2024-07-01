@@ -96,6 +96,8 @@ Total result is calculated later via doCollect
 
 $spinResult["win"] = $win;
 $spinResult["winAmount"] = $winAmount;
+$spinResult["betAmount"] = $betAmount;
+
 $gameData = [
     "spinResult" => $spinResult,
     "betAmount" => $betAmount,
