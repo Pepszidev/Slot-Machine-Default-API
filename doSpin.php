@@ -1,5 +1,6 @@
 <?php
 include 'config/winningLines.php';
+include 'config/defaultSettings.php';
 
 header('Content-type =>  application/json');
 
@@ -7,11 +8,11 @@ header('Content-type =>  application/json');
 session_start();
 ob_start();
 
-$betAmount = floatval($_POST["betAmount"]);
+$betAmount = clearFloat($_POST["betAmount"]);
 $spinResult = ["reels" => [], "winSymbols" => []];
 
 /* 
-Generate a random symbol between 1 and 2 
+Generate a random symbol between 1 and 5 
 */
 for($x = 0; $x < 5; ++$x) {
     $spinResult["reels"][] = ["reel" => []];

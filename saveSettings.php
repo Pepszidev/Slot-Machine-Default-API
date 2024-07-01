@@ -7,20 +7,21 @@ session_start();
 ob_start();
 
 $resp = NULL;
+$reset = false;
 
 //Initialize settings on first connection
-if(!isset($_SESSION["settings"])) {
+if(!isset($_SESSION["settings"]) || $reset) {
     $resp = $defaultConfig;    
 }
 // If the bet amount != 0 => That means the user is updating its config
-else if(floatval($_POST["BetAmount"]) != 0) {
+else if(clearFloat($_POST["BetAmount"]) != 0) {
     $resp = [
         "SoundEnabled" => boolval($_POST["SoundEnabled"]),
         "FastPlay" => boolval($_POST["FastPlay"]),
         "TurboPlay" => boolval($_POST["TurboPlay"]),
         "Intro" => boolval($_POST["Intro"]),
-        "Volume" => floatval($_POST["Volume"]),
-        "BetAmount" => floatval($_POST["BetAmount"]),
+        "Volume" => clearFloat($_POST["Volume"]),
+        "BetAmount" => clearFloat($_POST["BetAmount"]),
     ];
 }
 // Just retrieve session on first connection if its exist
@@ -30,8 +31,8 @@ else {
         "FastPlay" => boolval($_SESSION['settings']["FastPlay"]),
         "TurboPlay" => boolval($_SESSION['settings']["TurboPlay"]),
         "Intro" => boolval($_SESSION['settings']["Intro"]),
-        "Volume" => floatval($_SESSION['settings']["Volume"]),
-        "BetAmount" => floatval($_SESSION['settings']["BetAmount"]),
+        "Volume" => clearFloat($_SESSION['settings']["Volume"]),
+        "BetAmount" => clearFloat($_SESSION['settings']["BetAmount"]),
     ];
 }
 

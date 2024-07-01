@@ -10,3 +10,13 @@ $defaultConfig = [
 ];
 
 $initialBalance = 100;
+
+function clearFloat($floatText) {
+    if(is_string($floatText)) {
+        return floatval(str_replace(',', '.', $floatText));
+    }
+    else {
+        return floatval($floatText);
+    }
+   
+}

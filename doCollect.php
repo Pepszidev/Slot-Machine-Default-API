@@ -1,17 +1,14 @@
 <?php
 include 'config/winningLines.php';
 include 'config/winningSymbols.php';
+include 'config/defaultSettings.php';
 
 header('Content-type: application/json');
 
 // Start the session
 session_start();
 ob_start();
-/* @TODO Calculate result from database data */
 
-
-
-/* Simulate result */
 $gameData = [
     "win"=> false, 
     "winAmount"=> 0,
@@ -22,7 +19,7 @@ $betAmount = 0;
 
 if(isset($_SESSION["gameData"])) {
     $currentGame = $_SESSION["gameData"];
-    $betAmount = floatval($currentGame["betAmount"]);
+    $betAmount = clearFloat($currentGame["betAmount"]);
 
     $hasWin = false;
     $winAmount = 0;
@@ -50,6 +47,7 @@ else {
 
 $_SESSION["balance"] += $gameData["winAmount"];
 $resp = $gameData;
+
 
 echo json_encode($resp);
 
