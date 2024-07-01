@@ -1,136 +1,16 @@
 <?php
+include 'config/winningLines.php';
+include 'config/winningSymbols.php';
+
 header('Content-type: application/json');
+
 // Start the session
 session_start();
 ob_start();
 /* @TODO Calculate result from database data */
 
-$betAmount = $_SESSION["betAmount"];
+$betAmount = floatval($_SESSION["betAmount"]);
 
-$lines = [
-    /* 1
-    * * * * *
-    - - - - -
-    * * * * *
-    */
-    [
-        [0, 1],
-        [1, 1],
-        [2, 1],
-        [3, 1],
-        [4, 1],
-    ],
-    /* 2
-    - - - - -
-    * * * * *    
-    * * * * *
-    */
-    [
-        [0, 0],
-        [1, 0],
-        [2, 0],
-        [3, 0],
-        [4, 0],
-    ],
-    /* 3
-    - - - - -
-    * * * * *
-    * * * * *
-    */
-    [
-        [0, 2],
-        [1, 2],
-        [2, 2],
-        [3, 2],
-        [4, 2],
-    ],
-    /* 4
-    - * * * -
-    * - * - *
-    * * - * *
-    */
-    [
-        [0, 0],
-        [1, 1],
-        [2, 2],
-        [3, 1],
-        [4, 0],
-    ],
-    /* 5
-    * * - * *
-    * - * - *
-    - * * * -
-    */
-    [
-        [0, 2],
-        [1, 1],
-        [2, 0],
-        [3, 1],
-        [4, 2],
-    ],
-    /* 6
-    * - - - *
-    - * * * -
-    * * * * *
-    */
-    [
-        [0, 1],
-        [1, 0],
-        [2, 0],
-        [3, 0],
-        [4, 1],
-    ],
-    /* 7
-    * * * * *
-    - * * * -
-    * - - - *
-    */
-    [
-        [0, 1],
-        [1, 2],
-        [2, 2],
-        [3, 2],
-        [4, 1],
-    ],
-];
-
-$winBySymbol = [
-    [
-        0,
-        0,
-        1,
-        2,
-        3
-    ],
-    [
-        0,
-        0,
-        1,
-        2,
-        3
-    ],
-    [
-        0,
-        0,
-        1,
-        2,
-        3
-    ],
-    [
-        0,
-        0,
-        1,
-        2,
-        3
-    ],
-    [
-        0,
-        0,
-        1,
-        2,
-        3
-    ]
-];
 /* Simulate result */
 $gameData = [
     "win"=> true, 
@@ -150,10 +30,11 @@ if(isset($_SESSION["gameData"])) {
         $hasWin = true;
 
         $firstSymbol = $reelWinSymbols["reelWinSymbols"][0];
+        if(intval($firstSymbol["x"]) != 0) continue;
         
-        $symbol = $reelWinSymbols["reelWinSymbols"][0]["symbol"];
+        $symbol = $firstSymbol["symbol"];
 
-        $nbConnection = $reelWinSymbols["reelWinSymbols"][0]["nbConnection"];
+        $nbConnection = $firstSymbol["nbConnection"];
         $winAmount += $winBySymbol[$symbol - 1][$nbConnection - 1];
     }
     
@@ -167,7 +48,6 @@ else {
 
 $_SESSION["balance"] += $gameData["winAmount"];
 $resp = $gameData;
-
 
 echo json_encode($resp);
 

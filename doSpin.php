@@ -1,100 +1,14 @@
 <?php
-
+include 'config/winningLines.php';
 
 header('Content-type =>  application/json');
+
 // Start the session
 session_start();
 ob_start();
+
 $betAmount = $_POST["betAmount"];
-
 $spinResult = ["reels" => [], "winSymbols" => []];
-
-$lines = [
-    /* 1
-    * * * * *
-    - - - - -
-    * * * * *
-    */
-    [
-        [0, 1],
-        [1, 1],
-        [2, 1],
-        [3, 1],
-        [4, 1],
-    ],
-    /* 2
-    - - - - -
-    * * * * *    
-    * * * * *
-    */
-    [
-        [0, 0],
-        [1, 0],
-        [2, 0],
-        [3, 0],
-        [4, 0],
-    ],
-    /* 3
-    - - - - -
-    * * * * *
-    * * * * *
-    */
-    [
-        [0, 2],
-        [1, 2],
-        [2, 2],
-        [3, 2],
-        [4, 2],
-    ],
-    /* 4
-    - * * * -
-    * - * - *
-    * * - * *
-    */
-    [
-        [0, 0],
-        [1, 1],
-        [2, 2],
-        [3, 1],
-        [4, 0],
-    ],
-    /* 5
-    * * - * *
-    * - * - *
-    - * * * -
-    */
-    [
-        [0, 2],
-        [1, 1],
-        [2, 0],
-        [3, 1],
-        [4, 2],
-    ],
-    /* 6
-    * - - - *
-    - * * * -
-    * * * * *
-    */
-    [
-        [0, 1],
-        [1, 0],
-        [2, 0],
-        [3, 0],
-        [4, 1],
-    ],
-    /* 7
-    * * * * *
-    - * * * -
-    * - - - *
-    */
-    [
-        [0, 1],
-        [1, 2],
-        [2, 2],
-        [3, 2],
-        [4, 1],
-    ],
-];
 
 /* 
 Generate a random symbol between 1 and 2 
@@ -146,10 +60,10 @@ foreach($lines as $key => $line) {
 
     if(count($connections) >= 3) {
         
-        foreach($connections as $key => $connectionReel) {
+        foreach($connections as $reelId => $connectionReel) {
             $connectionReel["lineId"] = $key;
             $connectionReel["nbConnection"] = count($connections);
-            $spinResult["winSymbols"][$key]["reelWinSymbols"][] = $connectionReel;
+            $spinResult["winSymbols"][$reelId]["reelWinSymbols"][] = $connectionReel;
         }        
     }
 }
