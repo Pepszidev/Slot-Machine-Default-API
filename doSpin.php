@@ -1,5 +1,6 @@
 <?php
 include 'config/winningLines.php';
+include 'config/winningSymbols.php';
 include 'config/defaultSettings.php';
 
 header('Content-type =>  application/json');
@@ -69,11 +70,32 @@ foreach($lines as $key => $line) {
     }
 }
 
+$winAmount = 0;
+$win = false;
+$firstReel = $spinResult["winSymbols"][0]["reelWinSymbols"];
+if(count($firstReel) == 0) {
+    $winAmount = 0;
+    $win = false;  
+}
+else {
+    foreach($firstReel as $symbol) {
+        if(intval($symbol["x"]) != 0) continue;
+        $symbolIndex = $symbol["symbol"];
+
+        $nbConnection = $symbol["nbConnection"];
+        $winAmount += $winBySymbol[$symbolIndex - 1][$nbConnection - 1];
+    }
+    $winAmount = ($winAmount * $betAmount);
+    $win = true;   
+}
+
 /* @TODO
 Make sure to save data in db to be able to retrieve it through the doCollect route 
 Total result is calculated later via doCollect
 */
 
+$spinResult["win"] = $win;
+$spinResult["winAmount"] = $winAmount;
 $gameData = [
     "spinResult" => $spinResult,
     "betAmount" => $betAmount,
@@ -81,7 +103,6 @@ $gameData = [
 
 $_SESSION["gameData"] = $gameData;
 $_SESSION["balance"] -= $betAmount;
-$_SESSION["betAmount"] = $betAmount;
 
 
 $resp = $gameData["spinResult"];

@@ -46,6 +46,9 @@ else {
 }
 
 $_SESSION["balance"] += $gameData["winAmount"];
+$_SESSION["gameData"] = NULL;
+
+
 $resp = $gameData;
 
 
