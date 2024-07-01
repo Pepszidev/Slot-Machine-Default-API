@@ -9,18 +9,20 @@ session_start();
 ob_start();
 /* @TODO Calculate result from database data */
 
-$betAmount = floatval($_SESSION["betAmount"]);
+
 
 /* Simulate result */
 $gameData = [
-    "win"=> true, 
-    "winAmount"=> 36,
+    "win"=> false, 
+    "winAmount"=> 0,
 ];
 
 $currentGame = NULL;
+$betAmount = 0;
 
 if(isset($_SESSION["gameData"])) {
     $currentGame = $_SESSION["gameData"];
+    $betAmount = floatval($currentGame["betAmount"]);
 
     $hasWin = false;
     $winAmount = 0;

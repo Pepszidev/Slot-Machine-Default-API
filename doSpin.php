@@ -7,7 +7,7 @@ header('Content-type =>  application/json');
 session_start();
 ob_start();
 
-$betAmount = $_POST["betAmount"];
+$betAmount = floatval($_POST["betAmount"]);
 $spinResult = ["reels" => [], "winSymbols" => []];
 
 /* 
@@ -75,10 +75,13 @@ Total result is calculated later via doCollect
 
 $gameData = [
     "spinResult" => $spinResult,
+    "betAmount" => $betAmount,
 ];
+
 $_SESSION["gameData"] = $gameData;
 $_SESSION["balance"] -= $betAmount;
 $_SESSION["betAmount"] = $betAmount;
+
 
 $resp = $gameData["spinResult"];
 
