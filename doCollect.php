@@ -21,24 +21,24 @@ if(isset($_SESSION["gameData"])) {
     $currentGame = $_SESSION["gameData"];
     $betAmount = clearFloat($currentGame["betAmount"]);
 
-    $hasWin = false;
     $winAmount = 0;
 
-    foreach($currentGame["spinResult"]["winSymbols"] as $reelWinSymbols) {
-        if(count($reelWinSymbols["reelWinSymbols"]) == 0) continue;
-        $hasWin = true;
-
-        $firstSymbol = $reelWinSymbols["reelWinSymbols"][0];
-        if(intval($firstSymbol["x"]) != 0) continue;
-        
-        $symbol = $firstSymbol["symbol"];
-
-        $nbConnection = $firstSymbol["nbConnection"];
-        $winAmount += $winBySymbol[$symbol - 1][$nbConnection - 1];
+    $firstReel = $currentGame["spinResult"]["winSymbols"][0]["reelWinSymbols"];
+    if(count($firstReel) == 0) {
+        $gameData["winAmount"] = 0;
+        $gameData["win"] = false;  
     }
-    
-    $gameData["winAmount"] = ($winAmount * $betAmount);
-    $gameData["win"] = $hasWin;    
+    else {
+        foreach($firstReel as $symbol) {
+            if(intval($symbol["x"]) != 0) continue;
+            $symbolIndex = $symbol["symbol"];
+
+            $nbConnection = $symbol["nbConnection"];
+            $winAmount += $winBySymbol[$symbolIndex - 1][$nbConnection - 1];
+        }
+        $gameData["winAmount"] = ($winAmount * $betAmount);
+        $gameData["win"] = true;   
+    }     
 }
 else {
     $gameData["win"] = false;
