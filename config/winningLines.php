@@ -1,5 +1,10 @@
 <?php 
 
+/*
+Length of each winningLine has to fit with defaultSettings.nbReels
+
+Default : 5 reels with 5 symbols
+*/
 
 $lines = [
     /* 1

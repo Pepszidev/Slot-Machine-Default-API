@@ -1,8 +1,6 @@
 # Slot-Machine-Default-API
 Slot machine backend designed for the unity project below. It is designed to be simple as possible so you can customize logic on your own. Multiple other project will follow with more advenced feature. This git will be the base of every  other project.
 
-This API is designed to work with a 3x5 screen (3 lines, 5 columns)
-
 [Check the presentation video](https://www.youtube.com/watch?v=w8sWkl2Fk1I )
 
 [Unity Asset Store](https://assetstore.unity.com/packages/slug/289250)

@@ -1,5 +1,10 @@
 <?php
 
+$initialBalance = 100;
+$nbReels = 5;
+$nbLines = 3;
+$nbSymbols = 5;
+
 $defaultConfig = [
     "SoundEnabled" => true,
     "FastPlay" => false,
@@ -8,8 +13,6 @@ $defaultConfig = [
     "Volume" => 1,
     "BetAmount" => 1,
 ];
-
-$initialBalance = 100;
 
 function clearFloat($floatText) {
     if(is_string($floatText)) {
