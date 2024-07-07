@@ -10,7 +10,7 @@ There's currently no probability calculation and win calculation on this api. Th
 
 This API works with $_SESSION to simulate stored data from a database.
 
-## Get balance
+## Get balance (reloadBalance.php)
 
 ### Description
 
@@ -36,7 +36,7 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
 
     {"Balance":100}
 
-## Save settings
+## Save settings (saveSettings.php)
 
 ### Description
 
@@ -71,7 +71,7 @@ The user can POST his own settings to save it. If the BetAmount is equal zero, t
         "BetAmount" => 1,
     }
 
-## DoSpin
+## DoSpin (doSpin.php)
 
 ### Description
 
@@ -139,7 +139,7 @@ Spin the slot machine. This route generates the game. It handles all the logic s
     The winning symbols are calculated on the last items of the reel. If the slot machine is a 3x3, lines will be checked on the last 3 items of each 3 reels.
 
 
-## DoCollect
+## DoCollect (doCollect.php)
 
 ### Description
 
