@@ -2,9 +2,8 @@
 
 Slot machine backend designed for the unity project below. It is designed to be simple as possible so you can customize logic on your own. Multiple other project will follow with more advenced feature. This git will be the base of every  other project.
 
-[DEMO](https://projects.embedgaming.com/simple/)
-
-[Unity Asset Store](https://assetstore.unity.com/packages/slug/289250)
+Demo : [https://projects.embedgaming.com/simple/](https://projects.embedgaming.com/simple/)
+Unity Asset Store : [https://assetstore.unity.com/packages/slug/289250](https://assetstore.unity.com/packages/slug/289250)
 
 # How it works ?
 
