@@ -14,7 +14,12 @@ The main game logic is handled in doSpin.php route.
 
 Steps : 
 
-- Generate the winning panel : It randomly places symbols (symbol number defined in config/defaultSettings.php) into reel arrays. The number of symbol on each reel is set at 30. The displayed winning panel and the one I use to calculate win combinations is contained in the last 3 index of the reel array.
+- Generate the winning panel : It randomly places symbols (symbol number defined in config/defaultSettings.php) into reel arrays. The number of symbol on each reel is set at 30. The displayed winning panel and the one I use to calculate win combinations is contained in the last 3 indexs of the reel array.
+- Check each winning lines (config/winningLines.php) to detect symbol's positions to animate. It stores the line id (from config/winningLines.php) and the symbol id to be able to calculate winning amounts.
+- Calculate the win amount using config/winningSymbols.php and the previous action
+- Return the data
+
+It does not updat the user's balance. This action is called through doCollect.php to be able to update the user's balance later in the process (for no spoil)
 
 ### Example
 
