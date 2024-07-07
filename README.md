@@ -16,39 +16,41 @@ Steps :
 
 - Generate the winning panel : It randomly places symbols (symbol number defined in config/defaultSettings.php) into reel arrays. The number of symbol on each reel is set at 30. The displayed winning panel and the one I use to calculate win combinations is contained in the last 3 index of the reel array.
 
+### Example
+
 The following example is a response for a slot machine containing 3 reels. It generates 12 symbols on each reel. The winning is calculated in the last 3 symbol of each reel : 
 
-"reels": [
-    [
-        "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
+    "reels": [
+        [
+            "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
+        ],
+        [
+            "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
+        ],
+        [
+            "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
+        ]
     ],
-    [
-        "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
-    ],
-    [
-        "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
-    ]
-],
 
 Winning screen : 
 
-"reels": [
-    [
-        "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
+    "reels": [
+        [
+            "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
+        ],
+        [
+            "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
+        ],
+        [
+            "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
+        ]
     ],
-    [
-        "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
-    ],
-    [
-        "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
-    ]
-],
 
 So this will show : 
 
-2 2 2
-1 1 1
-2 2 2
+    2 2 2
+    1 1 1
+    2 2 2
 
 ## Get balance (reloadBalance.php)
 
