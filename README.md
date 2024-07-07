@@ -31,13 +31,12 @@ The following example is a response for a slot machine containing 3 reels. It ge
             "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
         ]
     ],
-- ![#f03c15](`yo`) `test`
 
 Winning screen : 
 
     "reels": [
         [
-            "reel" => [1,2,1,2,1,2,1,2,1,$${\color{red}2,1,2}$$]
+            "reel" => [1,2,1,2,1,2,1,2,1,<span style="color:blue">some *blue* text</span>.$${\color{red}2,1,2}$$]
         ],
         [
             "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
