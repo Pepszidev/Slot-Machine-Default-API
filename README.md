@@ -14,6 +14,13 @@ The REST API to the example app is described below.
 
 ## Get balance
 
+### Description
+
+This route returns the balance of the $_SESSION user. 
+
+If it's a new user, it initializes its balance at 100. The initial balance amount is stored in config/defaultSettings.php ($initialBalance)
+
+
 ### Request
 
 `POST /reloadBalance.php`
