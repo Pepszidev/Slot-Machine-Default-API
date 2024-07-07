@@ -1,4 +1,5 @@
 # EmbedGaming Slot Machine API - Simple Version
+
 Slot machine backend designed for the unity project below. It is designed to be simple as possible so you can customize logic on your own. Multiple other project will follow with more advenced feature. This git will be the base of every  other project.
 
 [Check the presentation video](https://www.youtube.com/watch?v=60-rC2RyDgs )
@@ -8,10 +9,6 @@ Slot machine backend designed for the unity project below. It is designed to be 
 There's currently no probability calculation and win calculation on this api. The math part is reserved for other projects as probabilities are generally unique by project. I don't want it to be specific, at least the less the better.
 
 This API works with $_SESSION to simulate stored data from a database.
-
-# REST API
-
-The REST API to the example app is described below.
 
 ## Get balance
 
