@@ -100,9 +100,43 @@ Spin the slot machine. This route generates the game. It handles all the logic s
         "win":true,
         "winAmount":10,
         "betAmount":1,
-        "reels": [],
-        "winSymbols": []
+        "reels": [], //Contains each reel with its symbols
+        "winSymbols": [] //Contains each reel with symbol's positions
     }
+
+    Example:
+
+    {
+        "win":true,
+        "winAmount":10,
+        "betAmount":1,
+        //Contains 3 reels
+        "reels": [
+            [
+                "reel" => [1,2,1,2,1,2,1,2,1,2,1,2] //1 is symbol1 (10), 2 is symbol2 (Jacks)
+            ],
+            [
+                "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
+            ],
+            [
+                "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
+            ]
+        ],
+        "winSymbols": [
+            [
+                //Line Id 3 (see config/winningLines.php) is connecting
+                "reelWinSymbols" => [
+                    [{x: 0, y 0: lineId: 3, symbol: 1}],
+                    [{x: 1, y 0: lineId: 3, symbol: 1}],
+                    [{x: 2, y 0: lineId: 3, symbol: 1}],
+                ]
+            ]
+           
+        ]
+    }
+
+    The winning symbols are calculated on the last items of the reel. If the slot machine is a 3x3, lines will be checked on the last 3 items of each 3 reels.
+
 
 ## Collect
 
