@@ -31,3 +31,63 @@ The REST API to the example app is described below.
     Content-Length: 36
 
     {"id":1,"name":"Foo","status":"new"}
+
+## Save settings
+
+### Request
+
+`POST /saveSettings.php`
+
+    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/saveSettings.php
+
+### Response
+
+    HTTP/1.1 201 Created
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+    Location: /thing/1
+    Content-Length: 36
+
+    {"id":1,"name":"Foo","status":"new"}
+
+## Spin
+
+### Request
+
+`POST /doSpin.php`
+
+    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/doSpin.php
+
+### Response
+
+    HTTP/1.1 201 Created
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+    Location: /thing/1
+    Content-Length: 36
+
+    {"id":1,"name":"Foo","status":"new"}
+
+## Collect
+
+### Request
+
+`POST /doCollect.php`
+
+    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/doCollect.php
+
+### Response
+
+    HTTP/1.1 201 Created
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+    Location: /thing/1
+    Content-Length: 36
+
+    {"id":1,"name":"Foo","status":"new"}
