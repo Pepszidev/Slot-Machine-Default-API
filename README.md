@@ -7,6 +7,7 @@ Slot machine backend designed for the unity project below. It is designed to be 
 
 There's currently no probability calculation and win calculation on this api. The math part is reserved for other projects as probabilities are generally unique by project. I don't want it to be specific, at least the less the better.
 
+This API works with $_SESSION to simulate stored data from a database.
 
 # REST API
 
@@ -16,7 +17,7 @@ The REST API to the example app is described below.
 
 ### Description
 
-This route returns the balance of the $_SESSION user. 
+Returns the balance of the $_SESSION user. 
 
 If it's a new user, it initializes its balance at 100. The initial balance amount is stored in config/defaultSettings.php ($initialBalance)
 
@@ -42,7 +43,11 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
 
 ### Description
 
-DESC
+Returns the settings of the current user. Settings are stored in the $_SESSION.
+
+If it's a new user (the session does not exist), it initializes the session with the default settings and returns it.
+
+The user can POST his own settings to save it. If the BetAmount is equal zero, that means the user just launched his game and he just wants his session settings and not update it.
 
 ### Request
 
@@ -66,7 +71,7 @@ DESC
 
 ### Description
 
-DESC
+Spin the slot machine. This route generates the game. It handles all the logic such as number of symbols, number of reels, etc.
 
 ### Request
 
@@ -90,7 +95,7 @@ DESC
 
 ### Description
 
-DESC
+Collect the current session's game previously started with the doSpin route. It updates the user's balance accordingly.
 
 ### Request
 
