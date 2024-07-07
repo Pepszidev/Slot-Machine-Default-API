@@ -31,7 +31,7 @@ The following example is a response for a slot machine containing 3 reels. It ge
             "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
         ]
     ],
-- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `test`
+- ![#f03c15](`yo`) `test`
 
 Winning screen : 
 
