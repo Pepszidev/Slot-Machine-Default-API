@@ -31,7 +31,7 @@ The following example is a response for a slot machine containing 3 reels. It ge
             "reel" => [1,2,1,2,1,2,1,2,1,2,1,2]
         ]
     ],
-
+<span style="color:blue">some *blue* text</span>.
 Winning screen : 
 
     "reels": [
