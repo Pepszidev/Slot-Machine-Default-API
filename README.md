@@ -18,7 +18,7 @@ Steps :
 
 ### Example
 
-The following example is a response for a slot machine containing 3 reels. It generates 12 symbols on each reel. The winning is calculated in the last 3 symbol of each reel : 
+The following example is a response for a slot machine containing 3 reels. It generates 12 symbols on each reel. Symbol 1 is 10 and Symbol 2 is Jack. The winning is calculated in the last 3 symbol of each reel : 
 
     "reels": [
         [
