@@ -6,6 +6,8 @@ Slot machine backend designed for the unity project below. It is designed to be 
 
 [Unity Asset Store](https://assetstore.unity.com/packages/slug/289250)
 
+# How it works ?
+
 This API works with $_SESSION to simulate stored data from a database.
 
 ## Get balance (reloadBalance.php)
