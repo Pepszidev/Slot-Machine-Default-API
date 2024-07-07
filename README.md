@@ -6,8 +6,6 @@ Slot machine backend designed for the unity project below. It is designed to be 
 
 [Unity Asset Store](https://assetstore.unity.com/packages/slug/289250)
 
-There's currently no probability calculation and win calculation on this api. The math part is reserved for other projects as probabilities are generally unique by project. I don't want it to be specific, at least the less the better.
-
 This API works with $_SESSION to simulate stored data from a database.
 
 ## Get balance (reloadBalance.php)
