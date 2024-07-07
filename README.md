@@ -127,7 +127,11 @@ Spin the slot machine. This route generates the game. It handles all the logic s
                 //Line Id 2 (see config/winningLines.php) is connecting
                 "reelWinSymbols" => [
                     [{x: 0, y 0: lineId: 2, symbol: 2}],
+                ],
+                "reelWinSymbols" => [
                     [{x: 1, y 0: lineId: 2, symbol: 2}],
+                ],
+                "reelWinSymbols" => [
                     [{x: 2, y 0: lineId: 2, symbol: 2}],
                 ]
             ]
