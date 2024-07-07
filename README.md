@@ -36,7 +36,9 @@ The following example is a response for a slot machine containing 3 reels. It ge
 Winning screen : 
 
 "reel" => [1,2,1,2,1,2,1,2,1,**2,1,2**]
+
 "reel" => [1,2,1,2,1,2,1,2,1,**2,1,2**]
+
 "reel" => [1,2,1,2,1,2,1,2,1,**2,1,2**]
 
 So this will show : 
