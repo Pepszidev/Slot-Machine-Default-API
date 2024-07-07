@@ -7,3 +7,27 @@ Slot machine backend designed for the unity project below. It is designed to be 
 
 There's currently no probability calculation and win calculation on this api. The math part is reserved for other projects as probabilities are generally unique by project. I don't want it to be specific, at least the less the better.
 
+
+# REST API
+
+The REST API to the example app is described below.
+
+## Get balance
+
+### Request
+
+`POST /reloadBalance.php`
+
+    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/reloadBalance.php
+
+### Response
+
+    HTTP/1.1 201 Created
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+    Location: /thing/1
+    Content-Length: 36
+
+    {"id":1,"name":"Foo","status":"new"}
