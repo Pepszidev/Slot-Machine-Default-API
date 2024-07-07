@@ -74,7 +74,7 @@ The user can POST his own settings to save it. If the BetAmount is equal zero, t
         "BetAmount" => 1,
     }
 
-## Spin
+## DoSpin
 
 ### Description
 
@@ -138,7 +138,7 @@ Spin the slot machine. This route generates the game. It handles all the logic s
     The winning symbols are calculated on the last items of the reel. If the slot machine is a 3x3, lines will be checked on the last 3 items of each 3 reels.
 
 
-## Collect
+## DoCollect
 
 ### Description
 
