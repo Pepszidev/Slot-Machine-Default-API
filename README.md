@@ -25,7 +25,7 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
 
 `POST /reloadBalance.php`
 
-    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/reloadBalance.php
+    curl -i -H 'Accept: application/json' -d '' http://localhost/reloadBalance.php
 
 ### Response
 
@@ -37,7 +37,7 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
     Location: /thing/1
     Content-Length: 36
 
-    {"id":1,"name":"Foo","status":"new"}
+    {"Balance":100}
 
 ## Save settings
 
@@ -53,7 +53,7 @@ The user can POST his own settings to save it. If the BetAmount is equal zero, t
 
 `POST /saveSettings.php`
 
-    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/saveSettings.php
+    curl -i -H 'Accept: application/json' -d 'SoundEnabled=true&FastPlay=false&TurboPlay=false&Intro=false&Volume=1&BetAmount=1' http://localhost/saveSettings.php
 
 ### Response
 
@@ -65,7 +65,14 @@ The user can POST his own settings to save it. If the BetAmount is equal zero, t
     Location: /thing/1
     Content-Length: 36
 
-    {"id":1,"name":"Foo","status":"new"}
+    { 
+        "SoundEnabled" : true,
+        "FastPlay" => false,
+        "TurboPlay" => false,
+        "Intro" => false,
+        "Volume" => 1,
+        "BetAmount" => 1,
+    }
 
 ## Spin
 
@@ -77,7 +84,7 @@ Spin the slot machine. This route generates the game. It handles all the logic s
 
 `POST /doSpin.php`
 
-    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/doSpin.php
+    curl -i -H 'Accept: application/json' -d 'betAmount=1' http://localhost/doSpin.php
 
 ### Response
 
@@ -89,7 +96,13 @@ Spin the slot machine. This route generates the game. It handles all the logic s
     Location: /thing/1
     Content-Length: 36
 
-    {"id":1,"name":"Foo","status":"new"}
+    {
+        "win":true,
+        "winAmount":10,
+        "betAmount":1,
+        "reels": [],
+        "winSymbols": []
+    }
 
 ## Collect
 
@@ -101,7 +114,7 @@ Collect the current session's game previously started with the doSpin route. It 
 
 `POST /doCollect.php`
 
-    curl -i -H 'Accept: application/json' -d 'name=Foo&status=new' http://localhost/doCollect.php
+    curl -i -H 'Accept: application/json' -d '' http://localhost/doCollect.php
 
 ### Response
 
@@ -113,4 +126,7 @@ Collect the current session's game previously started with the doSpin route. It 
     Location: /thing/1
     Content-Length: 36
 
-    {"id":1,"name":"Foo","status":"new"}
+    {
+        "win":true,
+        "winAmonut":10    
+    }
