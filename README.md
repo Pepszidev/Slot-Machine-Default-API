@@ -36,7 +36,7 @@ Winning screen :
 
     "reels": [
         [
-            "reel" => [1,2,1,2,1,2,1,2,1,<span style="color:blue">some *blue* text</span>.$${\color{red}2,1,2}$$]
+            "reel" => [1,2,1,2,1,2,1,2,1,**2,1,2**]
         ],
         [
             "reel" => [1,2,1,2,1,2,1,2,1,[2,1,2]]
