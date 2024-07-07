@@ -20,7 +20,6 @@ This route returns the balance of the $_SESSION user.
 
 If it's a new user, it initializes its balance at 100. The initial balance amount is stored in config/defaultSettings.php ($initialBalance)
 
-
 ### Request
 
 `POST /reloadBalance.php`
@@ -40,6 +39,10 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
     {"id":1,"name":"Foo","status":"new"}
 
 ## Save settings
+
+### Description
+
+DESC
 
 ### Request
 
@@ -61,6 +64,10 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
 
 ## Spin
 
+### Description
+
+DESC
+
 ### Request
 
 `POST /doSpin.php`
@@ -80,6 +87,10 @@ If it's a new user, it initializes its balance at 100. The initial balance amoun
     {"id":1,"name":"Foo","status":"new"}
 
 ## Collect
+
+### Description
+
+DESC
 
 ### Request
 
