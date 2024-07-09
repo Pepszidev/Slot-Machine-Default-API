@@ -101,6 +101,7 @@ $spinResult["betAmount"] = $betAmount;
 $gameData = [
     "spinResult" => $spinResult,
     "betAmount" => $betAmount,
+    "collected" => false,
 ];
 
 $_SESSION["gameData"] = $gameData;

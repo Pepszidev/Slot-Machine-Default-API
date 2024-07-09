@@ -205,5 +205,5 @@ Collect the current session's game previously started with the doSpin route. It 
 
     {
         "win":true,
-        "winAmonut":10    
+        "winAmount":10    
     }
