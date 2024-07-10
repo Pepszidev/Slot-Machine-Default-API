@@ -13,32 +13,34 @@ $reset = false;
 if(!isset($_SESSION["settings"]) || $reset) {
     $resp = $defaultConfig;    
 }
-// If the bet amount != 0 => That means the user is updating its config
-else if(clearFloat($_POST["BetAmount"]) != 0) {
+// If the bet amount is set => That means its an update
+else if(isset($_POST["BetAmount"])) {
     $resp = [
-        "SoundEnabled" => boolval($_POST["SoundEnabled"]),
-        "FastPlay" => boolval($_POST["FastPlay"]),
-        "TurboPlay" => boolval($_POST["TurboPlay"]),
-        "Intro" => boolval($_POST["Intro"]),
+        "SoundEnabled" => filter_var($_POST["SoundEnabled"], FILTER_VALIDATE_BOOLEAN),
+        "FastPlay" => filter_var($_POST["FastPlay"], FILTER_VALIDATE_BOOLEAN),
+        "TurboPlay" => filter_var($_POST["TurboPlay"], FILTER_VALIDATE_BOOLEAN),
+        "Intro" => filter_var($_POST["Intro"], FILTER_VALIDATE_BOOLEAN),       
         "Volume" => clearFloat($_POST["Volume"]),
         "BetAmount" => clearFloat($_POST["BetAmount"]),
     ];
+    $resp["settings_update"] = $_POST;
+
 }
-// Just retrieve session on first connection if its exist
+// If it's not set => call for init
 else {
     $resp = [
-        "SoundEnabled" => boolval($_SESSION['settings']["SoundEnabled"]),
-        "FastPlay" => boolval($_SESSION['settings']["FastPlay"]),
-        "TurboPlay" => boolval($_SESSION['settings']["TurboPlay"]),
-        "Intro" => boolval($_SESSION['settings']["Intro"]),
+        "SoundEnabled" => $_SESSION['settings']["SoundEnabled"],
+        "FastPlay" => $_SESSION['settings']["FastPlay"],
+        "TurboPlay" => $_SESSION['settings']["TurboPlay"],
+        "Intro" => $_SESSION['settings']["Intro"],
         "Volume" => clearFloat($_SESSION['settings']["Volume"]),
         "BetAmount" => clearFloat($_SESSION['settings']["BetAmount"]),
     ];
+    $resp["settings_session"] = $_POST;
 }
 
 $_SESSION["settings"] = $resp;
 
-$resp["test"] = $_POST;
 
 echo json_encode($resp);
 
